@@ -3,15 +3,15 @@
 /**
  * Taking number as input from user.
  */
-$check = 0;
+$isprime = true;
 $num = (int)readline('Enter Number to check its prime or not ');
 for($i=2;$i<$num;$i++){
     if($num % $i == 0){
-        $check++;
+        $isprime =false;
         break;
     }
 }
-if($check == 0){
+if($isprime){
     echo "It is a prime number"; //output
 }
 else{

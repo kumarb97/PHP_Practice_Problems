@@ -1,17 +1,27 @@
 <?php
 /**
- * Taking user input.
+ * Taking dividend and divisor as input from the user
  */
-$dividend = (int)readline('Enter dividend ');
-$divisor = (int)readline('Enter divisor ');
+$dividend = readline('Enter dividend: ');
+$divisor = readline('Enter divisor: ');
 
+if(is_numeric($dividend)){
+$temp1 = round($dividend); // to check input should not be decimal
+$temp2 = round($divisor);
+}
+if(is_numeric($dividend) && is_numeric($divisor) && $divisor!=0 && $temp1==$dividend && $temp2==$divisor){
 $quotient = $dividend/$divisor;
 $remainder = $dividend % $divisor;
-
-/**
- * Displaying output.
- */
 echo "Quotient : " . floor($quotient) . "\n";
-echo "Remainder : " . $remainder;
+if($remainder < 0){
+echo "Remainder : " . -$remainder;
+}
+else{
+    echo "Remainder : " . $remainder;
+}
+}
+else{
+    echo "Please Enter Valid input ";
+}
 
 ?>

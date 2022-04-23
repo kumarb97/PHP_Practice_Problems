@@ -1,22 +1,26 @@
 <?php
 
-/**
- * defining variable
- */
+// Intially taking variable ans=0
 $ans = 0;
 
 /**
- * Taking user input.
+ * Taking nth value as input from the user.
  */
-$num = (int)readline('Enter Number upto which harmonic value you want: ');
-if($num == 0){
-    echo "please enter valid input";
-}
-else{
-    for($i=1;$i<=$num;$i++){
-        $ans +=1/$i;
+$num = readline('Enter Number upto which harmonic value you want: ');
+if (is_numeric($num) && $num > 0) {  //Checking whether the input is valid or not
+    for ($i = 1; $i <= $num; $i++) {
+        if($i<$num){
+        echo "1/$i" . " + ";
+        $ans += 1 / $i;
+        }
+        else{
+            echo "1/$i";
+            $ans += 1 / $i;
+        }
     }
 
-    echo $num. "th harmonic number is " . $ans;  // displaying output
+    echo " = " . round($ans,2);  // displaying output upto two decimal places
 }
-?>
+else{
+    echo "Please Enter valid input";
+}

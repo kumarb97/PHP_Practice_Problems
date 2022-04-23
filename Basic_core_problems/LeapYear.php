@@ -4,16 +4,9 @@
  * Taking year as input from user.
  */
 $year = (int)readline('Enter year: ');
-$temp = (string)$year;      // converting int to string for validation.
 
-if (strlen($temp) == 4) {   // checking valid input
-    if ($year % 400 == 0) {
-        echo $year . " is a leap year.";
-    }
-    elseif ($year % 100 == 0) {
-        echo $year . " is not a leap year.";
-    }
-    elseif ($year % 4 == 0) {
+if ($year>0 && preg_match("/[0-9]{4}/",$year)) {   // checking whether input is valid or not
+    if ($year % 4 == 0 && $year % 100!= 0 || $year % 400 == 0) {
         echo $year . " is a leap year.";
     }
     else {
